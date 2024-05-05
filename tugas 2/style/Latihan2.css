@@ -1,0 +1,40 @@
+header {
+    text-align: left;
+    margin-left: 3%;
+    color: rgb(88, 172, 3);
+}
+
+.header-title {
+    margin: 20px 0;
+}
+
+article {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+section {
+    width: 30%;
+    border: 1px solid black;
+    margin-bottom: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.content h3 {
+    color: rgb(69, 69, 222);
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+}

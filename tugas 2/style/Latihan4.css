@@ -1,0 +1,175 @@
+body {
+    background-color: rgb(34, 24, 0);
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+nav {
+    height: 100px;
+    background-color: #0D47A1; 
+    text-align: center;
+    line-height: 100px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    margin-left: 50px;
+    font-size: 18px;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.5); 
+}
+
+nav a:hover {
+    background-color: azure;
+    color: goldenrod;
+}
+
+.satu {
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 60px 90px;
+}
+
+.kanan {
+    width: 400px;
+    line-height: 1.5;
+}
+
+.kanan p {
+    margin-bottom: 20px;
+    color: rgb(255, 255, 255);
+}
+
+.kanan h1 {
+    color: darkgoldenrod;
+    font-size: 32px;
+}
+
+.satu img {
+    width: 300px;
+}
+
+.kanan a {
+    text-decoration: none;
+    border: 1px solid goldenrod;
+    color: goldenrod;
+    padding: 8px 16px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.kanan a:hover {
+    background-color: goldenrod;
+    color: white;
+}
+
+.dua {
+    background-color: #E3F2FD; 
+    width: 1255px;
+    height: 650px;
+    margin-top: 125px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.dua img {
+    height: 400px;
+    margin-top: 130px;
+}
+.kiri {
+    margin-left: 90px;
+}
+
+.kiri2 {
+    margin-left: 90px;
+}
+.cp {
+    text-align: center;
+    color: #E3F2FD;
+}
+.kanan2 {
+    width: 400px;
+    line-height: 1.5;
+    margin-top: 155px;
+    margin-right: 90px;
+}
+
+.kanan2 h1 {
+    font-size: 32px;
+}
+
+.kanan2 img {
+    height: 70px;
+    width: 50px;
+    margin-top: 10px;
+    margin-right: 2px;
+}
+
+.tiga {
+    color: white;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.tiga h2 {
+    color: goldenrod;
+    margin-top: 50px;
+    font-size: 24px;
+}
+
+.tiga p {
+    margin-bottom: 10px;
+}
+
+.kcln {
+    line-height: 1px;
+}
+
+.services {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 100px 0;
+}
+
+.services p {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    padding: 6px;
+}
+
+.services .srv1,
+.services .srv2,
+.services .srv3 {
+    background-color: #BBDEFB;
+    color: black;
+    height: 300px;
+    border: 7px double #0D47A1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+.services .srv1 img,
+.services .srv2 img,
+.services .srv3 img {
+    width: 80px;
+    margin-top: 20px;
+}
+
+.services .srv1 h3,
+.services .srv2 h3,
+.services .srv3 h3 {
+    margin-top: 20px;
+}
+
+.services .srv1 p,
+.services .srv2 p,
+.services .srv3 p {
+    margin: 10px 20px;
+}
