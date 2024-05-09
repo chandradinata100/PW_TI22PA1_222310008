@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Perhitungan Faktorial dan Jumlah Deret</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Perhitungan Faktorial dan Jumlah Deret</h1>
+    <form id="calculatorForm">
+        <label for="inputNumber">Masukkan Angka (N):</label><br />
+        <input type="number" id="inputNumber" name="inputNumber" min="0" /><br /><br />
+        <button type="button" onclick="calculate()">Hitung</button>
+        <button type="button" onclick="resetForm()">Reset</button>
+    </form>
+
+    <div id="result" style="display: none">
+        <h2>Hasil Perhitungan</h2>
+        <table>
+            <tr>
+                <th>Jenis</th>
+                <th>Hasil</th>
+            </tr>
+            <tr>
+                <td>Faktorial</td>
+                <td id="faktorialResult"></td>
+            </tr>
+            <tr>
+                <td>Jumlah Deret</td>
+                <td id="jumlahDeretResult"></td>
+            </tr>
+        </table>
+    </div>
+
+    <script >function calculate() {
+        var inputNumber = parseInt(document.getElementById("inputNumber").value);
+
+        //faktorial
+        var faktorial = 1;
+        for (var i = 2; i <= inputNumber; i++) {
+            faktorial *= i;
+        }
+    
+        // jumlah deret
+        var jumlahDeret = 0;
+        for (var j = 1; j <= inputNumber; j++) {
+            jumlahDeret += j;
+        }
+    
+        document.getElementById("faktorialResult").innerText =
+            "Faktorial dari " + inputNumber + " adalah: " + faktorial;
+        document.getElementById("jumlahDeretResult").innerText =
+            "Jumlah deret sampai ke " + inputNumber + " adalah: " + jumlahDeret;
+    
+        document.getElementById("result").style.display = "block";
+    }
+    </script>
+
+    <script>
+        function resetForm() {
+            document.getElementById("calculatorForm").reset();
+            document.getElementById("result").style.display = "none";
+            document.getElementById("faktorialResult").innerText = "";
+            document.getElementById("jumlahDeretResult").innerText = "";
+        }
+    </script>
+</body>
+
+</html>

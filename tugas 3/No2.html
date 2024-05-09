@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Pemesanan Tiket Travel</title>
+</head>
+
+<body>
+    <h1>Pemesanan Tiket Travel Bintang Abadi</h1>
+    <form id="tiketForm">
+        <label for="nama">Nama Pemesan:</label><br>
+        <input type="text" id="nama" name="nama"><br><br>
+
+        <label for="tujuan">Tujuan:</label><br>
+        <select id="tujuan" name="tujuan">
+            <option value="">Pilih Tujuan</option>
+            <option value="Jakarta">Jakarta</option>
+            <option value="Solo">Solo</option>
+            <option value="Surabaya">Surabaya</option>
+        </select><br><br>
+
+        <label for="kelas">Kelas:</label><br>
+        <select id="kelas" name="kelas">
+            <option value="">Pilik Kelas</option>
+            <option value="Eksekutif">Eksekutif</option>
+            <option value="Bisnis">Bisnis</option>
+            <option value="Ekonomi">Ekonomi</option>
+        </select><br><br>
+
+        <label for="jumlah">Banyak Tiket:</label><br>
+        <input type="number" id="jumlah" name="jumlah" min="1"><br><br>
+
+        <label>Status :</label><br>
+        <input type="radio" id="member" name="status_member" value="Member"> <label for="member">Member</label><br>
+        <input type="radio" id="non_member" name="status_member" value="Non-Member"> <label for="non_member">Bukan Member</label><br>
+        <label><mark><b>NOTE : </b>Diskon 10% jika merupakan member Travel Bintang Abadi</mark></label><br><br>
+
+
+        <button type="button" onclick="hitungTotal()">Hitung Total</button>
+    </form>
+
+    <div id="result" style="display: none;">
+        <h2>Detail Pemesanan</h2>
+        <p id="detailNama"></p>
+        <p id="detailTujuan"></p>
+        <p id="detailKelas"></p>
+        <p id="detailJumlah"></p>
+        <p id="detailStatus"></p>
+        <h2>Tagihan</h2>
+        <p id="tagihanTiket"></p>
+        <p id="tagihanSubtotal"></p>
+        <p id="tagihanDiskon"></p>
+        <p id="totalBayar"></p>
+    </div>
+
+    <script>
+        function hitungTotal() {
+            var nama = document.getElementById("nama").value;
+            var tujuan = document.getElementById("tujuan").value;
+            var kelas = document.getElementById("kelas").value;
+            var jumlah = parseInt(document.getElementById("jumlah").value);
+            var statusMember = document.querySelector('input[name="status_member"]:checked').value;
+            
+            var hargaTiket = {
+                "Jakarta": {"Eksekutif": 70000, "Bisnis": 40000, "Ekonomi": 10000},
+                "Solo": {"Eksekutif": 80000, "Bisnis": 50000, "Ekonomi": 20000},
+                "Surabaya": {"Eksekutif": 90000, "Bisnis": 60000, "Ekonomi": 30000}
+            };
+            
+            var hargaPerTiket = hargaTiket[tujuan][kelas];
+            var subtotal = hargaPerTiket * jumlah;
+            var diskon = (statusMember === "Member") ? 0.1 * subtotal : 0;
+            var totalBayar = subtotal - diskon;
+            
+            document.getElementById("detailNama").innerText = "Nama Pemesan: " + nama;
+            document.getElementById("detailTujuan").innerText = "Tujuan: " + tujuan;
+            document.getElementById("detailKelas").innerText = "Kelas: " + kelas;
+            document.getElementById("detailJumlah").innerText = "Banyak Tiket: " + jumlah;
+            document.getElementById("detailStatus").innerText = "Status : " + statusMember;
+            document.getElementById("tagihanTiket").innerText = "Harga Tiket: Rp " + hargaPerTiket.toLocaleString();
+            document.getElementById("tagihanSubtotal").innerText = "Subtotal: Rp " + subtotal.toLocaleString();
+            document.getElementById("tagihanDiskon").innerText = "Diskon: Rp " + diskon.toLocaleString();
+            document.getElementById("totalBayar").innerText = "Total Bayar: Rp " + totalBayar.toLocaleString();
+
+            document.getElementById("result").style.display = "block";
+        }
+    </script>
+</body>
+
+</html>

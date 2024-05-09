@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Tabungan</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Kalkulator Tabungan</h1>
+    <form id="calculatorForm">
+        <table>
+            <tr>
+                <th>Saldo Awal (Rp)</th>
+                <td><input type="number" id="saldo" name="saldo" min="0"></td>
+            </tr>
+            <tr>
+                <th>Bunga (%)</th>
+                <td><input type="number" id="bunga" name="bunga" min="0"></td>
+            </tr>
+            <tr>
+                <th>Jangka Waktu (bulan)</th>
+                <td><input type="number" id="waktu" name="waktu" min="1"></td>
+            </tr>
+        </table>
+
+        <br>
+        <button type="button" onclick="hitungSaldo()">Hitung</button>
+        <button type="button" onclick="resetForm()">Reset</button>
+    </form>
+
+    <div id="result" style="display: none;">
+        <h2>Hasil Perhitungan</h2>
+        <table>
+            <tbody id="saldoResult"></tbody>
+        </table>
+    </div>
+    <script>
+        function hitungSaldo() {
+            var saldoAwal = parseInt(document.getElementById("saldo").value);
+            var bunga = parseFloat(document.getElementById("bunga").value);
+            var waktu = parseInt(document.getElementById("waktu").value);
+            var hasil = document.getElementById("saldoResult");
+            hasil.innerHTML = "";
+
+            var saldo = saldoAwal;
+            for (var i = 1; i <= waktu; i++) {
+                saldo += saldo * (bunga / 100); // menambah saldo dengan bunga
+                hasil.innerHTML += "Saldo Bulan " + i + " = Rp. " + saldo + "<br>";
+            }
+
+            document.getElementById("result").style.display = "block";
+        }
+    </script>
+    <script>
+        function resetForm() {
+            document.getElementById("calculatorForm").reset();
+            document.getElementById("result").style.display = "none";
+        }
+    </script>
+</body>
+
+</html>

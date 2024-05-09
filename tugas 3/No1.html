@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan Pembelajaran</title>
+</head>
+
+<body>
+    <h1>Pengisian Formulir Mahasiswa IBIK</h1>
+    <form id="mahasiswaForm">
+        <label for="nim">NIM:</label><br>
+        <input type="text" id="nim" name="nim"><br><br>
+
+        <label for="nama">Nama:</label><br>
+        <input type="text" id="nama" name="nama"><br><br>
+
+        <label for="jenisKelamin">Jenis Kelamin:</label><br>
+        <select id="jenisKelamin" name="jenisKelamin">
+            <option value="">Pilih Jenis Kelamin</option>
+            <option value="Laki-laki">Laki-laki</option>
+            <option value="Perempuan">Perempuan</option>
+        </select><br><br>
+
+        <label for="agama">Agama:</label><br>
+        <select id="agama" name="agama">
+            <option value="">Pilih Agama</option>
+            <option value="Buddha">Buddha</option>
+            <option value="Kristen">Kristen</option>
+            <option value="Islam">Islam</option>
+            <option value="Katolik">Katolik</option>
+            <option value="Konghucu">Konghucu</option>
+            <option value="Hindu">Hindu</option>
+        </select><br><br>
+
+        <label for="status">Status:</label><br>
+        <select id="status" name="status">
+            <option value="">Pilih Status</option>
+            <option value="Aktif">Aktif</option>
+            <option value="Non-Aktif">Non-Aktif</option>
+        </select><br><br>
+
+        <label for="jurusan">Jurusan:</label><br>
+        <select id="jurusan" name="jurusan">
+            <option value="">Pilih Jurusan</option>
+            <option value="Pariwisata">Pariwisata</option>
+            <option value="Teknologi Informasi">Teknologi Informasi</option>
+            <option value="Manajemen">Manajemen</option>
+            <option value="Akuntansi">Akuntansi</option>
+            <option value="Sistem Informasi">Sistem Informasi</option>
+            <option value="Bio Kewirausahaan">Bio Kewirausahaan</option>
+        </select><br><br>
+
+        <label for="komentar">Komentar:</label><br>
+        <textarea id="komentar" name="komentar" rows="4" cols="50"></textarea><br>
+
+        <button type="button" onclick="submitForm()">Kirim</button>
+    </form>
+
+    <div id="result" style="display: none;">
+        <h2>Hasil Pengisian Formulir</h2>
+        <p id="hasilNim"></p>
+        <p id="hasilNama"></p>
+        <p id="hasilJenisKelamin"></p>
+        <p id="hasilAgama"></p>
+        <p id="hasilStatus"></p>
+        <p id="hasilJurusan"></p>
+        <p id="hasilKomentar"></p>
+    </div>
+
+    <script>
+        function submitForm() {
+            var nim = document.getElementById("nim").value;
+            var nama = document.getElementById("nama").value;
+            var jenisKelamin = document.getElementById("jenisKelamin").value;
+            var agama = document.getElementById("agama").value;
+            var status = document.getElementById("status").value;
+            var jurusan = document.getElementById("jurusan").value;
+            var komentar = document.getElementById("komentar").value;
+
+            document.getElementById("hasilNim").innerText = "NIM: " + nim;
+            document.getElementById("hasilNama").innerText = "Nama: " + nama;
+            document.getElementById("hasilJenisKelamin").innerText = "Jenis Kelamin: " + jenisKelamin;
+            document.getElementById("hasilAgama").innerText = "Agama: " + agama;
+            document.getElementById("hasilStatus").innerText = "Status: " + status;
+            document.getElementById("hasilJurusan").innerText = "Jurusan: " + jurusan;
+            document.getElementById("hasilKomentar").innerText = "Komentar: " + komentar;
+
+            document.getElementById("result").style.display = "block";
+        }
+    </script>
+</body>
+
+</html>
