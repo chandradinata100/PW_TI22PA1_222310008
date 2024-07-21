@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>No 2</title>
+    <body>
+    <div class="container">
+        <h3>Hitung Akar Persamaan Kuadrat</h3>
+        <form id="quadraticForm">
+            <input type="number" id="a" placeholder="Masukkan nilai a" required>
+            <input type="number" id="b" placeholder="Masukkan nilai b" required>
+            <input type="number" id="c" placeholder="Masukkan nilai c" required>
+            <br>
+            <button type="button" onclick="calculateRoots()">Hitung Akar</button>
+        </form>
+        <div id="result" class="result"></div>
+    </div>
+
+    <script>
+        function calculateRoots() {
+            const a = parseFloat(document.getElementById('a').value);
+            const b = parseFloat(document.getElementById('b').value);
+            const c = parseFloat(document.getElementById('c').value);
+
+            const discriminant = b * b - 4 * a * c;
+            let resultText;
+
+            if (discriminant > 0) {
+                const x1 = (-b + Math.sqrt(discriminant)) / (2 * a);
+                const x2 = (-b - Math.sqrt(discriminant)) / (2 * a);
+                resultText = `Akar-akarnya adalah x1 = ${x1.toFixed(2)} dan x2 = ${x2.toFixed(2)}`;
+            } else if (discriminant === 0) {
+                const x = -b / (2 * a);
+                resultText = `Akar kembar x1 = x2 = ${x.toFixed(2)}`;
+            } else {
+                resultText = 'Persamaan tidak memiliki akar real';
+            }
+
+            document.getElementById('result').innerText = resultText;
+        }
+    </script>
+</body>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #b8ffe7;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            border: 2px solid #00dc37;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h3 {
+            color: #333;
+        }
+        input[type="number"] {
+            font-size: 1em;
+            padding: 5px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            font-size: 1em;
+            padding: 10px 20px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #333;
+        }
+    </style>
+</head>
+
+</html>
